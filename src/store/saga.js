@@ -1,16 +1,16 @@
 import { put, takeLatest } from 'redux-saga/effects';
-import { INIT_APP, setToken } from './actions';
+import { FETCH_INITIAL_DATA, setToken } from './actions';
 import createApi from './api';
 
 let api;
 
-function* initApp(action) {
+function* fetchInitialData(action) {
     api = createApi(action.payload.token);
     yield put(setToken(action.payload.token));
 }
 
 function* saga() {
-    yield takeLatest(INIT_APP, initApp);
+    yield takeLatest(FETCH_INITIAL_DATA, fetchInitialData);
 }
 
 export default saga;

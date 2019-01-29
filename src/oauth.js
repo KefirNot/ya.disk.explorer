@@ -15,10 +15,10 @@ class OAUTH extends React.Component {
         window.location.href = OAUTH_URL;
     }
 
-    initApp = (token) => {
-        const { initApp, history } = this.props;
+    fetchInitialData = (token) => {
+        const { fetchInitialData, history } = this.props;
 
-        initApp(token);
+        fetchInitialData(token);
         history.replace('/');
     }
 
@@ -28,7 +28,7 @@ class OAUTH extends React.Component {
         if (!token && !hashObj.access_token) {
             this.redirectToOauth();
         } else if (hashObj.access_token) {
-            this.initApp(hashObj.access_token);
+            this.fetchInitialData(hashObj.access_token);
         }
     }
 
