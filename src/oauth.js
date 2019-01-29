@@ -33,7 +33,11 @@ class OAUTH extends React.Component {
     }
 
     render() {
-        return null;
+        const { children, token } = this.props;
+
+        if(!token) return 'loading...';
+
+        return children;
     }
 }
 

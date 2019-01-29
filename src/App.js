@@ -10,11 +10,9 @@ class App extends Component {
         return (
             <ReduxConfig>
                 <BrowserRouter>
-                    <div>
-                        <OAuth />
+                    <OAuth>
                         <Token />
-
-                    </div>
+                    </OAuth>
                 </BrowserRouter>
             </ReduxConfig>
         );
