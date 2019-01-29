@@ -2,6 +2,10 @@ import * as actions from './actions.js';
 
 const initialState = {
     token: null,
+    user: {
+        loading: false,
+        name: null,
+    }
 }
 
 export default (state = initialState, action) => {

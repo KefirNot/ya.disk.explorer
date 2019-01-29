@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import qs from 'query-string';
 import { mapDispatchToProps } from './store/actions';
 
-class OAUTH extends React.Component {
+class OAuth extends React.Component {
     redirectToOauth = () => {
         const OAUTH_ARGS = {
             response_type: 'token',
@@ -41,4 +41,4 @@ class OAUTH extends React.Component {
     }
 }
 
-export default withRouter(connect(state => ({ token: state.token }), mapDispatchToProps)(OAUTH));
+export default withRouter(connect(state => ({ token: state.token }), mapDispatchToProps)(OAuth));
