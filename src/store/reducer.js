@@ -1,7 +1,7 @@
 import * as actions from './actions.js';
 
 const initialState = {
-    token: localStorage.getItem('token'),
+    token: null,
 }
 
 export default (state = initialState, action) => {
