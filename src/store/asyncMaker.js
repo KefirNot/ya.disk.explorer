@@ -15,9 +15,9 @@ export default (actionPrefix, functionPrefix) => {
 
     result[`${functionPrefix}Started`] = () => ({ type: startedActionType, payload: {} });
 
-    result[`${functionPrefix}Successed`] = (result) => ({ type: successedActionType, payload: { result } });
+    result[`${functionPrefix}Successed`] = (result) => ({ type: successedActionType, payload: { ...result } });
 
-    result[`${functionPrefix}Failed`] = (error) => ({ type: failedActionType, payload: { error } });
+    result[`${functionPrefix}Failed`] = (error) => ({ type: failedActionType, payload: { ...error } });
 
     return result;
 }

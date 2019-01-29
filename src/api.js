@@ -7,6 +7,6 @@ export default (token) => {
     });
 
     return {
-        getStorageInfo: instance.get('/resources/files'),
+        getDiskInfo: () => instance.get('/').catch(console.log),
     };
 }

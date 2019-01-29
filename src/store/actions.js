@@ -18,17 +18,6 @@ export const {
 } = asyncMaker('FETCH_DISK_FILES', 'fetchDiskFiles');
 
 export const {
-    FETCH_USER_INFO,
-    FETCH_USER_INFO_STARTED,
-    FETCH_USER_INFO_SUCCESSED,
-    FETCH_USER_INFO_FAILED,
-    fetchUserInfo,
-    fetchUserInfoStarted,
-    fetchUserInfoSuccessed,
-    fetchUserInfoFailed,
-} = asyncMaker('FETCH_USER_INFO', 'fetchUserInfo');
-
-export const {
     FETCH_DISK_INFO,
     FETCH_DISK_INFO_STARTED,
     FETCH_DISK_INFO_SUCCESSED,

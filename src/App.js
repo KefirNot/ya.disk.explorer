@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import ReduxConfig from './reduxConfig';
 import OAuth from './oauth';
 import Token from './token';
+import DiskInfo from './diskInfo';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
                 <BrowserRouter>
                     <OAuth>
                         <Token />
+                        <DiskInfo />
                     </OAuth>
                 </BrowserRouter>
             </ReduxConfig>
