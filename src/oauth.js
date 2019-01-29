@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 import qs from 'query-string';
 import { mapDispatchToProps } from './store/actions';
 
-const OAUTH_ARGS = {
-    response_type: 'token',
-    client_id: process.env.REACT_APP_CLIENT_ID,
-};
-const OAUTH_URL = `${process.env.REACT_APP_OAUTH_URL}?${qs.stringify(OAUTH_ARGS)}`;
-
 class OAUTH extends React.Component {
     redirectToOauth = () => {
+        const OAUTH_ARGS = {
+            response_type: 'token',
+            client_id: process.env.REACT_APP_CLIENT_ID,
+        };
+        const OAUTH_URL = `${process.env.REACT_APP_OAUTH_URL}?${qs.stringify(OAUTH_ARGS)}`;
+
         window.location.href = OAUTH_URL;
     }
 
-    setToken = (token) => {
-        const { setToken, history } = this.props;
+    initApp = (token) => {
+        const { initApp, history } = this.props;
 
-        setToken(token);
+        initApp(token);
         history.replace('/');
     }
 
@@ -28,7 +28,7 @@ class OAUTH extends React.Component {
         if (!token && !hashObj.access_token) {
             this.redirectToOauth();
         } else if (hashObj.access_token) {
-            this.setToken(hashObj.access_token);
+            this.initApp(hashObj.access_token);
         }
     }
 

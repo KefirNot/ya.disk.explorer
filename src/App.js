@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import ReduxConfig from './reduxConfig';
 import OAuth from './oauth';
 import Token from './token';
@@ -13,6 +13,7 @@ class App extends Component {
                     <div>
                         <OAuth />
                         <Token />
+
                     </div>
                 </BrowserRouter>
             </ReduxConfig>
