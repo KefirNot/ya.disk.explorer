@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import ReduxConfig from './reduxConfig';
 import ThemeConfig from './themeConfig';
 import OAuth from './oauth';
-import Token from './token';
 import DiskInfo from './diskInfo';
 import Dir from './dir';
 import './App.css';

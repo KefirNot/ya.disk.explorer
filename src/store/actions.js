@@ -1,6 +1,6 @@
 import asyncMaker from './asyncMaker';
 
-export const FETCH_INITIAL_DATA = 'INIT_APP';
+export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
 export const SET_TOKEN = 'SET_TOKEN';
 
 export const fetchInitialData = token => ({ type: FETCH_INITIAL_DATA, payload: { token } });
