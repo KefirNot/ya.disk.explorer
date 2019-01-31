@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ReduxConfig from './reduxConfig';
+import ThemeConfig from './themeConfig';
 import OAuth from './oauth';
 import Token from './token';
 import DiskInfo from './diskInfo';
@@ -11,13 +12,14 @@ class App extends Component {
     render() {
         return (
             <ReduxConfig>
-                <BrowserRouter>
-                    <OAuth>
-                        <Token />
-                        <DiskInfo />
-                        <Route render={(props) => <Dir key={props.location.key} {...props} />} />
-                    </OAuth>
-                </BrowserRouter>
+                <ThemeConfig>
+                    <BrowserRouter>
+                        <OAuth>
+                            <DiskInfo />
+                            <Route render={(props) => <Dir key={props.location.key} {...props} />} />
+                        </OAuth>
+                    </BrowserRouter>
+                </ThemeConfig>
             </ReduxConfig>
         );
     }

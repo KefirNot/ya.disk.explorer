@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import qs from 'query-string';
 import { mapDispatchToProps } from './store/actions';
+import Loading from './components/loading';
 
 class OAuth extends React.Component {
     redirectToOauth = () => {
@@ -37,7 +38,7 @@ class OAuth extends React.Component {
     render() {
         const { children, token } = this.props;
 
-        if (!token) return 'loading...';
+        if (!token) return <Loading />;
 
         return children;
     }
