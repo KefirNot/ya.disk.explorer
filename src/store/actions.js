@@ -7,15 +7,15 @@ export const fetchInitialData = token => ({ type: FETCH_INITIAL_DATA, payload: {
 export const setToken = token => ({ type: SET_TOKEN, payload: { token } });
 
 export const {
-    FETCH_DISK_FILES,
-    FETCH_DISK_FILES_STARTED,
-    FETCH_DISK_FILES_SUCCESSED,
-    FETCH_DISK_FILES_FAILED,
-    fetchDiskFiles,
-    fetchDiskFilesStarted,
-    fetchDiskFilesSuccessed,
-    fetchDiskFilesFailed,
-} = asyncMaker('FETCH_DISK_FILES', 'fetchDiskFiles');
+    FETCH_DISK_DIR,
+    FETCH_DISK_DIR_STARTED,
+    FETCH_DISK_DIR_SUCCESSED,
+    FETCH_DISK_DIR_FAILED,
+    fetchDiskDir,
+    fetchDiskDirStarted,
+    fetchDiskDirSuccessed,
+    fetchDiskDirFailed,
+} = asyncMaker('FETCH_DISK_DIR', 'fetchDiskDir');
 
 export const {
     FETCH_DISK_INFO,
@@ -30,4 +30,5 @@ export const {
 
 export const mapDispatchToProps = dispatch => ({
     fetchInitialData: token => dispatch(fetchInitialData(token)),
+    fetchDiskDir: dir => dispatch(fetchDiskDir(dir)),
 });

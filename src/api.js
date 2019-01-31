@@ -7,6 +7,7 @@ export default (token) => {
     });
 
     return {
-        getDiskInfo: () => instance.get('/').catch(console.log),
+        getDiskInfo: () => instance.get('/'),
+        getDiskDir: path => instance.get('/resources', { params: { path } }),
     };
 }

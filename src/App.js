@@ -4,6 +4,7 @@ import ReduxConfig from './reduxConfig';
 import OAuth from './oauth';
 import Token from './token';
 import DiskInfo from './diskInfo';
+import Dir from './dir';
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
                     <OAuth>
                         <Token />
                         <DiskInfo />
+                        <Route render={(props) => <Dir key={props.location.key} {...props} />} />
                     </OAuth>
                 </BrowserRouter>
             </ReduxConfig>

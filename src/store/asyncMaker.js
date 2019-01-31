@@ -11,7 +11,7 @@ export default (actionPrefix, functionPrefix) => {
     const failedActionType = `${actionPrefix}_FAILED`;
     result[failedActionType] = failedActionType;
 
-    result[functionPrefix] = () => ({ type: actionPrefix, payload: {} });
+    result[functionPrefix] = (arg) => ({ type: actionPrefix, payload: { arg } });
 
     result[`${functionPrefix}Started`] = () => ({ type: startedActionType, payload: {} });
 
