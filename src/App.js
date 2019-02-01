@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import ReduxConfig from './reduxConfig';
 import OAuth from './oauth';
 import Drawer from './components/drawer';
-import Dir from './dir';
+import Dir from './components/dir';
 import Workspace from './components/workspace';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
