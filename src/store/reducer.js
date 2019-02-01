@@ -13,7 +13,6 @@ const initialState = {
         },
         dir: {
             loading: false,
-            currentDir: null,
             data: [],
         },
     }
@@ -41,7 +40,7 @@ export default (state = initialState, action) => {
                 }
             });
         case actions.FETCH_DISK_DIR_STARTED:
-            return update(state, { disk: { dir: { loading: { $set: true }, currentDir: { $set: payload.dir } } } });
+            return update(state, { disk: { dir: { loading: { $set: true } } } });
         case actions.FETCH_DISK_DIR_SUCCESSED:
             return update(state, { disk: { dir: { loading: { $set: false }, data: { $set: payload.data }, } } });
         default:
