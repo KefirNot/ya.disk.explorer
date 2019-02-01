@@ -3,7 +3,7 @@ import { ProgressBar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import './drawer.scss';
 
-const BYTES_IN_GB = 1024 * 1024 * 1024;
+const BYTES_IN_GB = 1024 ** 3;
 
 const toGb = bytes => {
     const result = bytes / BYTES_IN_GB;
