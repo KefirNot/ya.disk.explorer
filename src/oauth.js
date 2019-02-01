@@ -36,12 +36,12 @@ class OAuth extends React.Component {
     }
 
     render() {
-        const { children, token } = this.props;
+        const { children, token, loading } = this.props;
 
-        if (!token) return <Loading />;
+        if (!token || loading) return <Loading />;
 
         return children;
     }
 }
 
-export default withRouter(connect(state => ({ token: state.token }), mapDispatchToProps)(OAuth));
+export default withRouter(connect(state => ({ token: state.token, loading: state.disk.info.loading }), mapDispatchToProps)(OAuth));
