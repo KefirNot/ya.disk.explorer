@@ -26,7 +26,7 @@ class Path extends React.Component {
 
         return (
             <Breadcrumb>
-                <BcItem url='/' label='Диск' />
+                <BcItem url='/' label='Диск' active={parentDirs.length === 0} />
                 {
                     parentDirs.map((x, i) => <BcItem key={i} {...x} />)
                 }

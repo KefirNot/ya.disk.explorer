@@ -1,4 +1,14 @@
 .dir {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    &__header {
+        padding: 0 !important;
+
+        nav > ol.breadcrumb {
+            margin-bottom: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
 }

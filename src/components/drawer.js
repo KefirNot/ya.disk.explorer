@@ -23,7 +23,7 @@ class Drawer extends React.Component {
         return (
             <div className='drawer'>
                 <div className='drawer__user'>
-                    Signed as: {user}
+                    <h4>User: {user}</h4>
                 </div>
                 <div className='drawer__info'>
                     <ProgressBar {...progressBarProps} />

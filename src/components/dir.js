@@ -1,7 +1,9 @@
 import React from 'react';
 import Path from './path';
 import { connect } from 'react-redux';
+import { Card } from 'react-bootstrap';
 import { mapDispatchToProps } from '../store/actions';
+import Loading from './loading';
 import './dir.scss';
 
 class Dir extends React.Component {
@@ -20,19 +22,25 @@ class Dir extends React.Component {
     render() {
         const { loading, data } = this.props;
         return (
-            <div class='dir'>
-                <Path />
-                <div>
+            <Card className='dir'>
+                <Card.Header className='dir__header'>
+                    <Path />
+                </Card.Header>
+                <Card.Body>
                     {
-                        data.map((x, i) => <div
-                            key={i}
-                            onClick={x.type === 'dir' ? this.makeClickFolderHandler(x.path) : null}
-                        >
-                            {x.name}
-                        </div>)
+                        loading
+                        ? <Loading />
+                        : data.map((x, i) => (
+                            <div
+                                key={i}
+                                onClick={x.type === 'dir' ? this.makeClickFolderHandler(x.path) : null}
+                            >
+                                {x.name}
+                            </div>
+                        ))
                     }
-                </div>
-            </div>
+                </Card.Body>
+            </Card>
         );
     }
 }
