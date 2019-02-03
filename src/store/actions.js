@@ -2,9 +2,11 @@ import asyncMaker from './asyncMaker';
 
 export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
 export const SET_TOKEN = 'SET_TOKEN';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 export const fetchInitialData = token => ({ type: FETCH_INITIAL_DATA, payload: { token } });
 export const setToken = token => ({ type: SET_TOKEN, payload: { token } });
+export const clearError = () => ({ type: CLEAR_ERROR, payload: {} });
 
 export const {
     FETCH_DISK_DIR,
@@ -31,4 +33,5 @@ export const {
 export const mapDispatchToProps = dispatch => ({
     fetchInitialData: token => dispatch(fetchInitialData(token)),
     fetchDiskDir: dir => dispatch(fetchDiskDir(dir)),
+    clearError: () => dispatch(clearError()),
 });

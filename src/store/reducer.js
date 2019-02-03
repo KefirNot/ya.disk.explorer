@@ -3,6 +3,7 @@ import update from 'immutability-helper';
 
 const initialState = {
     token: null,
+    error: null,
     disk: {
         info: {
             loading: false,
@@ -23,6 +24,8 @@ export default (state = initialState, action) => {
     switch (type) {
         case actions.SET_TOKEN:
             return { ...state, token: payload.token };
+        case actions.CLEAR_ERROR:
+            return { ...state, error: null };
         case actions.FETCH_DISK_INFO_STARTED:
             return update(state, { disk: { info: { loading: { $set: true } } } });
         case actions.FETCH_DISK_INFO_SUCCESSED:
@@ -43,6 +46,8 @@ export default (state = initialState, action) => {
             return update(state, { disk: { dir: { loading: { $set: true } } } });
         case actions.FETCH_DISK_DIR_SUCCESSED:
             return update(state, { disk: { dir: { loading: { $set: false }, data: { $set: payload.data }, } } });
+        case actions.FETCH_DISK_DIR_FAILED:
+            return update(state, { disk: { dir: { loading: { $set: false }, data: { $set: [] }, } }, error: { $set: payload.text } });
         default:
             break;
     }

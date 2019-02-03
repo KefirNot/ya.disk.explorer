@@ -22,13 +22,12 @@ function* fetchDiskInfo() {
 }
 
 function* fetchDiskDir(action) {
-    try {
-        yield put(actions.fetchDiskDirStarted());
-        const { data } = yield call(api.getDiskDir, action.payload.arg);
+    yield put(actions.fetchDiskDirStarted());
+    const { data, status, statusText } = yield call(api.getDiskDir, action.payload.arg);
+    if (status === 200) {
         yield put(actions.fetchDiskDirSuccessed({ data: data._embedded.items }));
-    }
-    catch (error) {
-        console.log('error!!!', error)
+    } else {
+        yield put(actions.fetchDiskDirFailed({ text: `${status} ${statusText}` }));
     }
 }
 

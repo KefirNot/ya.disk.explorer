@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const CATCH = x => x.response;
+
 export default (token) => {
     const instance = axios.create({
         baseURL: 'https://cloud-api.yandex.net/v1/disk/',
@@ -7,7 +9,7 @@ export default (token) => {
     });
 
     return {
-        getDiskInfo: () => instance.get('/'),
-        getDiskDir: path => instance.get('/resources', { params: { path } }),
+        getDiskInfo: () => instance.get('/').catch(CATCH),
+        getDiskDir: path => instance.get('/resources', { params: { path } },).catch(CATCH),
     };
 }
