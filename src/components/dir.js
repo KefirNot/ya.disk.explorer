@@ -57,10 +57,10 @@ class Dir extends React.Component {
                                             </Col>
                                             <Col xs={10} md={10} lg={11}>
                                             <Row>
-                                                <Col md={9} xs={12}>
+                                                <Col md={10} xs={12}>
                                                     {x.name}
                                                 </Col>
-                                                <Col md={3} xs={12} className='dir__size'>
+                                                <Col md={2} xs={12} className='dir__size'>
                                                     {isDir ? null : this.sizeToString(x.size)}
                                                 </Col>
                                             </Row>

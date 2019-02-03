@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import ReduxConfig from './reduxConfig';
 import OAuth from './oauth';
-import Drawer from './components/drawer';
-import Dir from './components/dir';
 import Workspace from './components/workspace';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,9 +12,7 @@ class App extends Component {
             <ReduxConfig>
                 <BrowserRouter>
                     <OAuth>
-                        <Workspace drawer={Drawer}>
-                            <Route render={(props) => <Dir key={props.location.key} {...props} />} />
-                        </Workspace>
+                        <Workspace />
                     </OAuth>
                 </BrowserRouter>
             </ReduxConfig>

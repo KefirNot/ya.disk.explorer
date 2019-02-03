@@ -1,18 +1,20 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Route } from 'react-router-dom';
+import Drawer from './drawer';
+import Dir from './dir';
 import './workspace.scss';
 
 class Workspace extends React.Component {
     render() {
-        const { drawer: Drawer, children } = this.props;
         return (
-            <Container fluid className='h-100'>
-                <Row className='h-100'>
+            <Container>
+                <Row>
                     <Col lg={3} md={4} xs={12}>
                         <Drawer />
                     </Col>
                     <Col>
-                        {children}
+                        <Route render={(props) => <Dir key={props.location.key} {...props} />} />
                     </Col>
                 </Row>
             </Container>
