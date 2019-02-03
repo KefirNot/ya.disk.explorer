@@ -42,12 +42,12 @@ export default (state = initialState, action) => {
                     }
                 }
             });
-        case actions.FETCH_DISK_INFO_SUCCESSED:
+        case actions.FETCH_DISK_INFO_FAILED:
             return update(state, { disk: { info: { loading: { $set: false } } }, error: { $set: payload.text } });
         case actions.FETCH_DISK_DIR_STARTED:
             return update(state, { disk: { dir: { loading: { $set: true } } } });
         case actions.FETCH_DISK_DIR_SUCCESSED:
-            return update(state, { disk: { dir: { loading: { $set: false }, data: { $set: payload.data }, } } });
+            return update(state, { disk: { dir: { loading: { $set: false }, data: { $set: payload.data } } } });
         case actions.FETCH_DISK_DIR_FAILED:
             return update(state, { disk: { dir: { loading: { $set: false }, data: { $set: [] }, } }, error: { $set: payload.text } });
         default:
