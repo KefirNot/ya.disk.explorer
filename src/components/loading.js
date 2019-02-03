@@ -4,6 +4,6 @@ import './loading.scss';
 
 export default () => (
     <div className='loading'>
-        <Alert variant='success'>loading</Alert>
+        <Alert variant='primary'>loading</Alert>
     </div>
 );

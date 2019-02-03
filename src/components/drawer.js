@@ -17,7 +17,7 @@ class Drawer extends React.Component {
         const progressBarProps = {
             now: Math.round(usedSpace / totalSpace * 100),
             striped: true,
-            variant: 'success',
+            variant: 'primary',
         };
 
         return (

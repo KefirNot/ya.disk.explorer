@@ -1,7 +1,7 @@
 import React from 'react';
 import Path from './path';
 import { connect } from 'react-redux';
-import { Card } from 'react-bootstrap';
+import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { mapDispatchToProps } from '../store/actions';
 import Loading from './loading';
 import './dir.scss';
@@ -26,20 +26,21 @@ class Dir extends React.Component {
                 <Card.Header className='dir__header'>
                     <Path />
                 </Card.Header>
-                <Card.Body>
+                <ListGroup className="list-group-flush">
                     {
                         loading
-                        ? <Loading />
-                        : data.map((x, i) => (
-                            <div
-                                key={i}
-                                onClick={x.type === 'dir' ? this.makeClickFolderHandler(x.path) : null}
-                            >
-                                {x.name}
-                            </div>
-                        ))
+                            ? <Loading />
+                            : data.map((x, i) => (
+                                <ListGroupItem
+                                    key={i}
+                                    className='dir__obj--folder'
+                                    onClick={x.type === 'dir' ? this.makeClickFolderHandler(x.path) : null}
+                                >
+                                    {x.name}
+                                </ListGroupItem>
+                            ))
                     }
-                </Card.Body>
+                </ListGroup>
             </Card>
         );
     }

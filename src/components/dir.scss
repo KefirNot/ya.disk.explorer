@@ -11,4 +11,14 @@
             border-bottom-left-radius: 0;
         }
     }
+
+    &__obj {
+        &--folder {
+            cursor: pointer;
+            
+            &:hover {
+                background-color: rgba(0, 0, 0, .1);
+            }
+        }
+    }
 }
