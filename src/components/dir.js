@@ -35,41 +35,47 @@ class Dir extends React.Component {
         return `${Math.floor(cutSize(size))}${unitNames[n]}`;
     }
 
+    get content() {
+        const { data } = this.props;
+
+        if (data.length === 0) {
+            return (<ListGroupItem className='dir__obj--empty'>пусто</ListGroupItem>);
+        }
+
+        return data.map((x, i) => {
+            const isDir = x.type === 'dir';
+            const Icon = isDir ? FolderIcon : FileIcon;
+            return (
+                <ListGroupItem key={i} className={`dir__obj--${isDir ? 'folder' : 'file'}`} onClick={isDir ? this.makeClickFolderHandler(x.path) : null}>
+                    <Row>
+                        <Col xs={2} md={2} lg={1} className='dir__icon'>
+                            <Icon />
+                        </Col>
+                        <Col xs={10} md={10} lg={11}>
+                            <Row>
+                                <Col md={10} xs={12}>
+                                    {x.name}
+                                </Col>
+                                <Col md={2} xs={12} className='dir__size'>
+                                    {isDir ? null : this.sizeToString(x.size)}
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </ListGroupItem>
+            );
+        })
+    }
+
     render() {
-        const { loading, data } = this.props;
+        const { loading } = this.props;
         return (
             <Card className='dir'>
                 <Card.Header className='dir__header'>
                     <Path />
                 </Card.Header>
                 <ListGroup className="list-group-flush">
-                    {
-                        loading
-                            ? <Loading />
-                            : data.map((x, i) => {
-                                const isDir = x.type === 'dir';
-                                const Icon = isDir ? FolderIcon : FileIcon;
-                                return (
-                                    <ListGroupItem key={i} className={`dir__obj--${isDir ? 'folder' : 'file'}`} onClick={isDir ? this.makeClickFolderHandler(x.path) : null}>
-                                        <Row>
-                                            <Col xs={2} md={2} lg={1} className='dir__icon'>
-                                                <Icon />
-                                            </Col>
-                                            <Col xs={10} md={10} lg={11}>
-                                            <Row>
-                                                <Col md={10} xs={12}>
-                                                    {x.name}
-                                                </Col>
-                                                <Col md={2} xs={12} className='dir__size'>
-                                                    {isDir ? null : this.sizeToString(x.size)}
-                                                </Col>
-                                            </Row>
-                                            </Col>
-                                        </Row>
-                                    </ListGroupItem>
-                                );
-                            })
-                    }
+                    {loading ? <Loading /> : this.content}
                 </ListGroup>
             </Card>
         );
