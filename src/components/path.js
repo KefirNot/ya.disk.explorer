@@ -14,8 +14,8 @@ const BcItem = props => {
 
 class Path extends React.Component {
     render() {
-        const { location: { pathname } } = this.props;
-        const parentDirs = pathname
+        const { location: { pathname, hash } } = this.props;
+        const parentDirs = (pathname + hash)
             .split('/')
             .filter(x => x)
             .map((x, i, arr) => ({

@@ -13,9 +13,9 @@ const FileIcon = () => <FontAwesomeIcon icon={faFile} size='2x' color='#d8d8d8' 
 
 class Dir extends React.Component {
     componentDidMount() {
-        const { fetchDiskDir, location: { pathname } } = this.props;
+        const { fetchDiskDir, location: { pathname, hash } } = this.props;
 
-        fetchDiskDir(pathname);
+        fetchDiskDir(pathname + hash);
     }
 
     makeClickFolderHandler = (dir) => () => {
