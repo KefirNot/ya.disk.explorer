@@ -21,4 +21,18 @@
             }
         }
     }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__size {
+        font-size: 12px;
+        color: rgb(100, 100, 100);
+
+        display: flex;
+        align-items: center;
+    }
 }
