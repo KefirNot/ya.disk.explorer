@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CATCH = x => x.response;
+const CATCH = error => error.response;
 
 export default (token) => {
     const instance = axios.create({
@@ -10,6 +10,6 @@ export default (token) => {
 
     return {
         getDiskInfo: () => instance.get('/').catch(CATCH),
-        getDiskDir: path => instance.get('/resources', { params: { path } },).catch(CATCH),
+        getDiskDir: path => instance.get('/resources', { params: { path } }).catch(CATCH),
     };
 }

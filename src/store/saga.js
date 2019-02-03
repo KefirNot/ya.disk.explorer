@@ -11,13 +11,12 @@ function* fetchInitialData(action) {
 }
 
 function* fetchDiskInfo() {
-    try {
-        yield put(actions.fetchDiskInfoStarted());
-        const { data } = yield call(api.getDiskInfo);
+    yield put(actions.fetchDiskInfoStarted());
+    const { data, status, statusText } = yield call(api.getDiskInfo);
+    if (status === 200) {
         yield put(actions.fetchDiskInfoSuccessed(data));
-    }
-    catch (error) {
-        console.log('error!!!', error)
+    } else {
+        yield put(actions.fetchDiskInfoFailed({ text: `${status} ${statusText}` }));
     }
 }
 
