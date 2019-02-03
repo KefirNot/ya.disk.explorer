@@ -1,6 +1,8 @@
 import React from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import './drawer.scss';
 
 const BYTES_IN_GB = 1024 ** 3;
@@ -23,7 +25,9 @@ class Drawer extends React.Component {
         return (
             <div className='drawer'>
                 <div className='drawer__user'>
-                    <h4>User: {user}</h4>
+                    <h4>
+                        <FontAwesomeIcon icon={faUser} color='#d8d8d8' /> {user}
+                    </h4>
                 </div>
                 <div className='drawer__info'>
                     <ProgressBar {...progressBarProps} />
