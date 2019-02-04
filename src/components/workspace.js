@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Route } from 'react-router-dom';

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import { connect } from 'react-redux';

@@ -1,3 +1,4 @@
+// @flow
 import axios from 'axios';
 
 const CATCH = error => error.response;

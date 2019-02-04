@@ -1,3 +1,4 @@
+// @flow
 export default (actionPrefix, functionPrefix) => {
     const result = {};
     result[actionPrefix] = actionPrefix;

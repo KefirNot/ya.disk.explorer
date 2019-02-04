@@ -1,3 +1,4 @@
+// @flow
 import * as actions from './actions.js';
 import update from 'immutability-helper';
 

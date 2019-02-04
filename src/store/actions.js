@@ -1,3 +1,4 @@
+// @flow
 import asyncMaker from './asyncMaker';
 
 export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
