@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import qs from 'query-string';
-import { mapDispatchToProps } from './store/actions';
+import { fetchInitialData } from './store/actions';
 import Loading from './components/loading';
 
 class OAuth extends React.Component {
@@ -44,4 +44,9 @@ class OAuth extends React.Component {
     }
 }
 
-export default withRouter(connect(state => ({ token: state.token, loading: state.disk.info.loading }), mapDispatchToProps)(OAuth));
+export default withRouter(
+    connect(
+        state => ({ token: state.token, loading: state.disk.info.loading }),
+        dispatch => ({ fetchInitialData: token => dispatch(fetchInitialData(token)) }),
+    )(OAuth)
+);
