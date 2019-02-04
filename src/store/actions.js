@@ -30,9 +30,3 @@ export const {
     fetchDiskInfoSuccessed,
     fetchDiskInfoFailed,
 } = asyncMaker('FETCH_DISK_INFO', 'fetchDiskInfo');
-
-export const mapDispatchToProps = dispatch => ({
-    fetchInitialData: token => dispatch(fetchInitialData(token)),
-    fetchDiskDir: dir => dispatch(fetchDiskDir(dir)),
-    clearError: () => dispatch(clearError()),
-});

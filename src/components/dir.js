@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Card, ListGroup, ListGroupItem, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder, faFile } from '@fortawesome/free-solid-svg-icons'
-import { mapDispatchToProps } from '../store/actions';
+import { fetchDiskDir } from '../store/actions';
 import Loading from './loading';
 import './dir.scss';
 
@@ -83,4 +83,7 @@ class Dir extends React.Component {
     }
 }
 
-export default connect(state => ({ ...state.disk.dir }), mapDispatchToProps)(Dir);
+export default connect(
+    state => ({ ...state.disk.dir }),
+    dispatch => ({ fetchDiskDir: dir => dispatch(fetchDiskDir(dir)) }),
+)(Dir);
