@@ -1,8 +1,26 @@
 // @flow
-import * as actions from './actions.js';
+import * as actions from './actions';
 import update from 'immutability-helper';
 
-const initialState = {
+type State = {
+    +token: ?string,
+    +error: ?string,
+    +disk: {
+        +info: {
+            +loading: boolean,
+            +user: ?string,
+            +trashSize: ?number,
+            +totalSpace: ?number,
+            +usedSpace: ?number,
+        },
+        +dir: {
+            +loading: boolean,
+            +data: Array<any>,
+        }
+    }
+}
+
+const initialState: State = {
     token: null,
     error: null,
     disk: {
@@ -20,7 +38,7 @@ const initialState = {
     }
 }
 
-export default (state = initialState, action) => {
+export default (state: State = initialState, action: actions.ActionType): State => {
     const { type, payload } = action;
     switch (type) {
         case actions.SET_TOKEN:

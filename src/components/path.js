@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { Breadcrumb } from 'react-bootstrap';
 import { withRouter, Link } from 'react-router-dom';

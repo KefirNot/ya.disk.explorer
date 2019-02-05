@@ -1,4 +1,3 @@
-// @flow
 import asyncMaker from './asyncMaker';
 
 export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
@@ -30,3 +29,5 @@ export const {
     fetchDiskInfoSuccessed,
     fetchDiskInfoFailed,
 } = asyncMaker('FETCH_DISK_INFO', 'fetchDiskInfo');
+
+export type ActionType = { type: string, payload: any };

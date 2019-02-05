@@ -1,5 +1,5 @@
 // @flow
-export default (actionPrefix, functionPrefix) => {
+export default (actionPrefix: string, functionPrefix: string): any => {
     const result = {};
     result[actionPrefix] = actionPrefix;
 

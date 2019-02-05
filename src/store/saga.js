@@ -1,4 +1,3 @@
-// @flow
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as actions from './actions';
 import createApi from '../api';

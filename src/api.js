@@ -1,9 +1,8 @@
-// @flow
 import axios from 'axios';
 
 const CATCH = error => error.response;
 
-export default (token) => {
+export default (token: string) => {
     const instance = axios.create({
         baseURL: 'https://cloud-api.yandex.net/v1/disk/',
         headers: { 'Authorization': `OAuth ${token}` },

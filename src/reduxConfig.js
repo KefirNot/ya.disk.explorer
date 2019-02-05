@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -16,5 +15,5 @@ const store = createStore(
 
 sagaMiddleware.run(saga);
 
-export default props => <Provider store={store}>{props.children}</Provider>;
+export default (props) => <Provider store={store}>{props.children}</Provider>;
 
